@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Dioses Griegos</title>
+{% endblock title %}
+
+{% block masterhead %}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Dioses Griegos</h1>
+{% endblock masterhead %}
+{% block cuerpo_posheader %}
+<p>
+    <ul>
+        {% for objeto in lista_objetos %}
+        <li>{{objeto.nombre}}</li>
+        {% endfor %}        
+    </ul>
+</p>
+{% endblock cuerpo_posheader  %}

@@ -6,9 +6,9 @@ from desafio.models import Prueba
 
 # Create your views here.
 def una_vista(request):
-    return HttpResponse("<h1>Bienvenidos</h1>")
+    return render(request, "index.html")
 
-def un_template(request):
+def dioses_griegos(request):
     # template = loader.get_template("index.html")
     
     dios1 = Prueba(nombre="Zeus", simbolo = "Cielo", origen = "Griego")
@@ -20,4 +20,4 @@ def un_template(request):
     
     # render = template.render({"lista_objetos": [dios1, dios2, dios3]})
     # return HttpResponse(render)
-    return render(request, "index.html", {"lista_objetos": [dios1, dios2, dios3]})
+    return render(request, "dioses_griegos.html", {"lista_objetos": [dios1, dios2, dios3]})

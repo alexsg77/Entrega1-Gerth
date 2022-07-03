@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import una_vista, un_template
+from .views import una_vista, dioses_griegos
 
 urlpatterns = [
     path('', una_vista),
-    path('mi_template/', un_template),
+    path('dioses_griegos/', dioses_griegos),
 ]
