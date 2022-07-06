@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-<title>Dioses Griegos</title>
+<title>Listado dioses creados</title>
 {% endblock title %}
 
 {% block masterhead %}
@@ -10,14 +10,26 @@
             <div class="col-xl-6">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Dioses Griegos</h1>
+                    <h1 class="mb-5">Dioses Creados</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
+
 <p>
+    <form action= {% url 'listado_dioses' %}>
+         {{form}}  
+        <button>Buscar</button>
+    </form>
+</p>
+
+<p>
+    {% if  listado_dioses%}
     <ul>
-        {% for objeto in lista_griegos %}
-        <li>Nombre: {{objeto.nombre}}, Simbolo: {{objeto.simbolo}}</li>
+        {% for diospropio in listado_dioses %}
+        <li>{{diospropio}}</li>
         {% endfor %}        
     </ul>
+    {% else %}
+    No se encontraron datos.
+    {% endif %}
 </p>
 {% endblock cuerpo_posheader  %}

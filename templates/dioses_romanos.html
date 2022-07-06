@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-<title>Dioses Griegos</title>
+<title>Dioses Romanos</title>
 {% endblock title %}
 
 {% block masterhead %}
@@ -10,12 +10,12 @@
             <div class="col-xl-6">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Dioses Griegos</h1>
+                    <h1 class="mb-5">Dioses Romanos</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
 <p>
     <ul>
-        {% for objeto in lista_griegos %}
+        {% for objeto in lista_romanos %}
         <li>Nombre: {{objeto.nombre}}, Simbolo: {{objeto.simbolo}}</li>
         {% endfor %}        
     </ul>
