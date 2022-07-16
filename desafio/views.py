@@ -96,7 +96,7 @@ def editar_dios(request, id):
     
     form_diospropio = FormDios(initial={"nombre": diospropio.nombre, "simbolo": diospropio.simbolo, "origen":  diospropio.origen, "reseña": diospropio.reseña})    
     
-    return render(request, "crear_dios.html", {"form": form_diospropio, "dios": diospropio})
+    return render(request, "editar_dios.html", {"form": form_diospropio, "diospropio": diospropio})
     
     
     
