@@ -14,29 +14,23 @@
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
 <p>
-    <a href={% url "crear_dios" %}>Crear dios</a>
-</p>
-<p>
-    <form action= {% url 'listado_dioses' %}>
-         {{form}}  
-        <button>Buscar</button>
-    </form>
+    <a href={% url 'listado_dioses' %}>Volver</a>
 </p>
 
 <p>
-    {% if  listado_dioses%}
     <ul>
-        {% for diospropio in listado_dioses %}
         <li>
-            {{diospropio}}
-            <a href={% url "mostrar_dios" diospropio.id %}>Ver</a>
-            <a href={% url "editar_dios" diospropio.id %}>Editar</a>
-            <a href={% url "eliminar_dios" diospropio.id %}>Eliminar</a>
+            {{diospropio.nombre}}
         </li>
-        {% endfor %}        
+        <li>
+            {{diospropio.simbolo}}
+        </li>
+        <li>
+            {{diospropio.origen}}
+        </li>
+        <li>
+            {{diospropio.reseña}}
+        </li>
     </ul>
-    {% else %}
-    No se encontraron datos.
-    {% endif %}
 </p>
 {% endblock cuerpo_posheader  %}

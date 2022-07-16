@@ -104,3 +104,7 @@ def eliminar_dios(request, id):
     diospropio = CrearDios.objects.get(id=id)
     diospropio.delete()
     return redirect("listado_dioses")
+
+def mostrar_dios(request, id):
+    diospropio = CrearDios.objects.get(id=id)
+    return render(request, 'mostrar_dios.html', {'diospropio': diospropio})
