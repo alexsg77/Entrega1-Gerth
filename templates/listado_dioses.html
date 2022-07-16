@@ -13,7 +13,9 @@
                     <h1 class="mb-5">Dioses Creados</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
-
+<p>
+    <a href={% url "crear_dios" %}>Crear dios</a>
+</p>
 <p>
     <form action= {% url 'listado_dioses' %}>
          {{form}}  
@@ -25,7 +27,11 @@
     {% if  listado_dioses%}
     <ul>
         {% for diospropio in listado_dioses %}
-        <li>{{diospropio}}</li>
+        <li>
+            {{diospropio}}
+            <a href={% url "editar_dios" diospropio.id %}>Editar</a>
+            <a href={% url "eliminar_dios" diospropio.id %}>Eliminar</a>
+        </li>
         {% endfor %}        
     </ul>
     {% else %}

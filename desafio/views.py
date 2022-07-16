@@ -1,6 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.template import loader
+from django.shortcuts import redirect, render
 from desafio.forms import BusquedaDioses, FormDios
 
 from desafio.models import DiosGriego, DiosRomano, CrearDios
@@ -52,12 +50,13 @@ def crear_dios(request):
     
     if request.method == "POST":
         form = FormDios(request.POST)
+        
         if form.is_valid():
             data = form.cleaned_data
+            
             diospropio = CrearDios(nombre=data.get("nombre"), simbolo=data.get("simbolo"), origen=data.get("origen"), reseña=data.get("reseña"))
             diospropio.save()
-            listado_dioses = CrearDios.objects.all()
-            return render(request, "listado_dioses.html", {"listado_dioses": listado_dioses})
+            return redirect("listado_dioses")
         
         else:
             return render(request, "crear_dios.html", {"form": form})
@@ -78,3 +77,30 @@ def listado_dioses(request):
     form = BusquedaDioses()
     return render(request, "listado_dioses.html", {"listado_dioses": listado_dioses, "form": form})
     
+    
+def editar_dios(request, id):
+    diospropio = CrearDios.objects.get(id=id) 
+    
+    if request.method =="POST":
+        form = FormDios(request.POST)
+        if form.is_valid():  
+            diospropio.nombre = form.cleaned_data.get("nombre")
+            diospropio.simbolo = form.cleaned_data.get("simbolo")
+            diospropio.origen = form.cleaned_data.get("origen")
+            diospropio.reseña = form.cleaned_data.get("reseña")
+            diospropio.save()
+            
+            return redirect("listado_dioses")
+        else:
+            return render(request, "editar_dios.html", {"form": form, "dios": diospropio})
+    
+    form_diospropio = FormDios(initial={"nombre": diospropio.nombre, "simbolo": diospropio.simbolo, "origen":  diospropio.origen, "reseña": diospropio.reseña})    
+    
+    return render(request, "crear_dios.html", {"form": form_diospropio, "dios": diospropio})
+    
+    
+    
+def eliminar_dios(request, id):
+    diospropio = CrearDios.objects.get(id=id)
+    diospropio.delete()
+    return redirect("listado_dioses")
