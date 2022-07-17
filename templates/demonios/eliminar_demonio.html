@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Eliminar Demonio</title>
+{% endblock title %}
+
+{% block masterhead %}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Eliminar Demonio</h1>
+{% endblock masterhead %}
+{% block cuerpo_posheader %}
+<p>
+    <a href={% url 'listado_demonios' %}>Volver</a>
+</p>
+<p>
+    <form action={% url 'eliminar_demonio' object.id %} method="post">
+        {% csrf_token %}
+        ¿Desea eliminar el demonio?
+        <button>Confirmar</button>
+    </form>
+</p>
+{% endblock cuerpo_posheader  %}

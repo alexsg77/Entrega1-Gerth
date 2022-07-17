@@ -22,3 +22,5 @@ class CrearDios(models.Model):
     def __str__(self):
         return f"Dios: {self.nombre}, simbolo: {self.simbolo}"
     
+
+    

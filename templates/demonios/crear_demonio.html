@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Crea tu demonio</title>
+{% endblock title %}
+
+{% block masterhead %}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Crear Demonio</h1>
+{% endblock masterhead %}
+{% block cuerpo_posheader %}
+<p>
+    <form action={% url "crear_demonio" %} method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Crear</button>
+    </form>
+</p>
+{% endblock cuerpo_posheader  %}

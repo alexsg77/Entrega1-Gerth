@@ -59,12 +59,12 @@ def crear_dios(request):
             return redirect("listado_dioses")
         
         else:
-            return render(request, "crear_dios.html", {"form": form})
+            return render(request, "dioses/crear_dios.html", {"form": form})
             
     form_dios = FormDios()
 
     
-    return render(request, "crear_dios.html", {"form": form_dios})
+    return render(request, "dioses/crear_dios.html", {"form": form_dios})
 
 def listado_dioses(request):
     
@@ -75,7 +75,7 @@ def listado_dioses(request):
     else:
         listado_dioses = CrearDios.objects.all()
     form = BusquedaDioses()
-    return render(request, "listado_dioses.html", {"listado_dioses": listado_dioses, "form": form})
+    return render(request, "dioses/listado_dioses.html", {"listado_dioses": listado_dioses, "form": form})
     
     
 def editar_dios(request, id):
@@ -92,11 +92,11 @@ def editar_dios(request, id):
             
             return redirect("listado_dioses")
         else:
-            return render(request, "editar_dios.html", {"form": form, "dios": diospropio})
+            return render(request, "dioses/editar_dios.html", {"form": form, "dios": diospropio})
     
     form_diospropio = FormDios(initial={"nombre": diospropio.nombre, "simbolo": diospropio.simbolo, "origen":  diospropio.origen, "reseña": diospropio.reseña})    
     
-    return render(request, "editar_dios.html", {"form": form_diospropio, "diospropio": diospropio})
+    return render(request, "dioses/editar_dios.html", {"form": form_diospropio, "diospropio": diospropio})
     
     
     
@@ -107,4 +107,4 @@ def eliminar_dios(request, id):
 
 def mostrar_dios(request, id):
     diospropio = CrearDios.objects.get(id=id)
-    return render(request, 'mostrar_dios.html', {'diospropio': diospropio})
+    return render(request, 'dioses/mostrar_dios.html', {'diospropio': diospropio})
