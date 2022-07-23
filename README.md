@@ -1,6 +1,5 @@
 # Integrantes: Alex Gerth, Alejo Sintolo
 # Funcionalidades: 
-# cuenta precreada de prueba user: admin2 pass: 4826nnnn
 # sistema de creación de cuenta, deslogear cuenta, editar cuenta, cargar avatar
 # dos listados uno con dioses griegos y otro con dioses romanos
 # seccion para crear,editar,eliminar tu propio dios de la base de datos con buscador integrado y acceso a "ver mas" con id
