@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-<title>Crea tu dios</title>
+<title>Editar Perfil</title>
 {% endblock title %}
 
 {% block masterhead %}
@@ -10,19 +10,21 @@
             <div class="col-xl-6">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Crear Dios</h1>
+                    <h1>
+                        Editando perfil de {{request.user.username}}
+                    </h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
 <p>
-    <a href={% url "listado_dioses" %}>Volver</a>
-</p>  
-<p>
-    <form action={% url "crear_dios" %} method="post">
+    <form action={% url 'editar_perfil' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
-        <button>Crear</button>
+        <button>Editar</button>
     </form>
+    <p>
+        <a href={% url 'cambiar_password' %}>Cambiar password</a>
+    </p>
 </p>
 {% endblock cuerpo_posheader  %}

@@ -13,10 +13,16 @@
                     <h1 class="mb-5">Demonios Creados</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
+<br>
 <p>
-    <a href={% url "crear_demonio" %}>Crear Demonio</a>
+    <a class="btn btn-primary" href={% url "crear_demonio" %}>Crear Demonio</a>
 </p>
-
+<p>
+    <form action={% url 'listado_demonios' %}>
+        {{form}}
+        <button>Buscar</button>
+    </form>
+</p>
 <p>
     {% if object_list %}
     <ul>

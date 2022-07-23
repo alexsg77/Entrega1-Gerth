@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Perfil</title>
+{% endblock title %}
+
+{% block masterhead %}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1>
+                        Perfil usuario {{request.user.username}}
+                    </h1>
+{% endblock masterhead %}
+{% block cuerpo_posheader %}
+<p>
+    <ul>
+        <li>Nombre: {{request.user.first_name}}</li>
+        <li>Apellido: {{request.user.last_name}}</li>
+        <li>Email: {{request.user.email}}</li>
+        <li>
+            <p>Avatar:</p>
+            {% if request.user.masdatosusuario.avatar %}
+            <img src={{request.user.masdatosusuario.avatar.url}} alt="" height="200px">
+            {% endif %}
+        </li>
+    </ul>
+</p>
+<p>
+    <a href={% url 'editar_perfil' %}>Editar mis datos</a>
+</p>
+{% endblock cuerpo_posheader  %}

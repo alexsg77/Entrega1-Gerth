@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from desafio.forms import BusquedaDioses, FormDios
-
 from desafio.models import DiosGriego, DiosRomano, CrearDios
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def una_vista(request):
@@ -77,7 +77,7 @@ def listado_dioses(request):
     form = BusquedaDioses()
     return render(request, "dioses/listado_dioses.html", {"listado_dioses": listado_dioses, "form": form})
     
-    
+@login_required    
 def editar_dios(request, id):
     diospropio = CrearDios.objects.get(id=id) 
     
@@ -99,7 +99,7 @@ def editar_dios(request, id):
     return render(request, "dioses/editar_dios.html", {"form": form_diospropio, "diospropio": diospropio})
     
     
-    
+@login_required    
 def eliminar_dios(request, id):
     diospropio = CrearDios.objects.get(id=id)
     diospropio.delete()

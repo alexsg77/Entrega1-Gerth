@@ -17,10 +17,24 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static 'desafio/css/styles.css' %} rel="stylesheet" />
     </head>
-    
+
     <body>
-        
         <!-- Masthead-->
+        <br>
+        {% if request.user.is_authenticated %}
+        <a class="btn btn-primary" href={% url 'perfil' %}>
+            {% if request.user.masdatosusuario.avatar %}
+            <img src={{request.user.masdatosusuario.avatar.url}} alt="" height="50px">
+            {% endif %}
+            {{request.user.username}}
+        </a>
+        <a class="btn btn-primary" href={% url "logout"%}>Desloguearse</a>
+        {% else %}
+        <a class="btn btn-primary" href={% url "login"%}>Logearse</a>
+        <a class="btn btn-primary" href={% url "register"%}>Registrarse</a>
+        {% endif %}
+        <br>
+        <br>
         {% block masterhead %}
         <header class="masthead">
             <div class="container position-relative">

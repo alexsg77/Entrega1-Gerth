@@ -2,7 +2,7 @@ from django.urls import path
 from .views import dioses_romanos, una_vista, dioses_griegos, crear_dios, listado_dioses, acerca_de_mi, eliminar_dios, editar_dios , mostrar_dios 
 
 urlpatterns = [
-    path('', una_vista),
+    path('', una_vista, name="index"),
     path('dioses_griegos/', dioses_griegos),
     path('dioses_romanos/', dioses_romanos),
     path('crear_dios/', crear_dios, name="crear_dios"),

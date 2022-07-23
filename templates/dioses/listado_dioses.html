@@ -13,8 +13,9 @@
                     <h1 class="mb-5">Dioses Creados</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
+<br>
 <p>
-    <a href={% url "crear_dios" %}>Crear dios</a>
+    <a class="btn btn-primary" href={% url "crear_dios" %}>Crear dios</a>
 </p>
 <p>
     <form action= {% url 'listado_dioses' %}>
