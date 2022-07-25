@@ -29,7 +29,13 @@
             {{diospropio.origen}}
         </li>
         <li>
-            {{diospropio.reseña}}
+            {{diospropio.reseña | safe}}
+        </li>
+        <li>
+            {{diospropio.fecha_creacion}}
+        </li>
+        <li>
+            {{diospropio.autor}}
         </li>
     </ul>
 </p>

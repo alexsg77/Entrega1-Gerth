@@ -8,6 +8,7 @@ class MyUserCreationForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir Password', widget=forms.PasswordInput)
+
     
     
     class Meta:

@@ -29,14 +29,14 @@ class CrearDemonio2(CreateView):
     model=CrearDemonio
     template_name = "demonios/crear_demonio.html"
     success_url = "/demonios/listado_demonios"
-    fields = ["nombre", "simbolo", "origen", "reseña"]    
+    fields = ["nombre", "simbolo", "origen", "reseña", "fecha_creacion", "autor"]    
     
     
 class EditarDemonio(LoginRequiredMixin,UpdateView):
     model=CrearDemonio
     template_name = "demonios/editar_demonio.html"
     success_url = "/demonios/listado_demonios"
-    fields = ["nombre", "simbolo", "origen", "reseña"]    
+    fields = ["nombre", "simbolo", "origen", "reseña", "fecha_creacion", "autor"]    
     
     
 class EliminarDemonio(DeleteView, LoginRequiredMixin):

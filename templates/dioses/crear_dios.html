@@ -15,11 +15,13 @@
 {% block cuerpo_posheader %}
 <p>
     <a href={% url "listado_dioses" %}>Volver</a>
-</p>  
+</p>
+<h6>*nota: La fecha debe ser ingresada en el formato mm/dd/año</h6>  
 <p>
     <form action={% url "crear_dios" %} method="post">
         {% csrf_token %}
         <table>
+            {{form.media}}
             {{form.as_table}}
         </table>
         <button>Crear</button>

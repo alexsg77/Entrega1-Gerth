@@ -20,6 +20,7 @@
     <form action={% url "editar_dios" diospropio.id %} method="post">
         {% csrf_token %}
         <table>
+            {{form.media}}
             {{form.as_table}}
         </table>
         <button>Editar</button>

@@ -29,7 +29,13 @@
             {{object.origen}}
         </li>
         <li>
-            {{object.reseña}}
+            {{object.reseña | safe}}
+        </li>
+        <li>
+            {{object.fecha_creacion}}
+        </li>
+        <li>
+            {{object.autor}}
         </li>
     </ul>
 </p>

@@ -54,7 +54,7 @@ def crear_dios(request):
         if form.is_valid():
             data = form.cleaned_data
             
-            diospropio = CrearDios(nombre=data.get("nombre"), simbolo=data.get("simbolo"), origen=data.get("origen"), reseña=data.get("reseña"))
+            diospropio = CrearDios(nombre=data.get("nombre"), simbolo=data.get("simbolo"), origen=data.get("origen"), reseña=data.get("reseña"), fecha_creacion=data.get("fecha_creacion"), autor=data.get("autor"))
             diospropio.save()
             return redirect("listado_dioses")
         
@@ -88,13 +88,15 @@ def editar_dios(request, id):
             diospropio.simbolo = form.cleaned_data.get("simbolo")
             diospropio.origen = form.cleaned_data.get("origen")
             diospropio.reseña = form.cleaned_data.get("reseña")
+            diospropio.fecha_creacion = form.cleaned_data.get("fecha_creacion")
+            diospropio.autor = form.cleaned_data.get("autor")
             diospropio.save()
             
             return redirect("listado_dioses")
         else:
             return render(request, "dioses/editar_dios.html", {"form": form, "dios": diospropio})
     
-    form_diospropio = FormDios(initial={"nombre": diospropio.nombre, "simbolo": diospropio.simbolo, "origen":  diospropio.origen, "reseña": diospropio.reseña})    
+    form_diospropio = FormDios(initial={"nombre": diospropio.nombre, "simbolo": diospropio.simbolo, "origen":  diospropio.origen, "reseña": diospropio.reseña, "fecha_creacion": diospropio.fecha_creacion, "autor": diospropio.autor})    
     
     return render(request, "dioses/editar_dios.html", {"form": form_diospropio, "diospropio": diospropio})
     
