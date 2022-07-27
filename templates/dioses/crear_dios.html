@@ -16,7 +16,7 @@
 <p>
     <a href={% url "listado_dioses" %}>Volver</a>
 </p>
-<h6>*nota: La fecha debe ser ingresada en el formato mm/dd/año</h6>  
+<strong>*nota: La fecha debe ser ingresada en el formato mm/dd/año</strong>  
 <p>
     <form action={% url "crear_dios" %} method="post">
         {% csrf_token %}

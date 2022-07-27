@@ -13,7 +13,7 @@
                     <h1 class="mb-5">Crear Demonio</h1>
 {% endblock masterhead %}
 {% block cuerpo_posheader %}
-<h6>*nota: La fecha debe ser ingresada en el formato mm/dd/año</h6>
+<strong>*nota: La fecha debe ser ingresada en el formato mm/dd/año</strong>
 <p>
     <form action={% url "crear_demonio" %} method="post">
         {% csrf_token %}
