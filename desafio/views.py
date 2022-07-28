@@ -12,7 +12,7 @@ def acerca_de_mi(request):
 
 def dioses_griegos(request):
 
-    
+ #el atributo origen no se ve en la web ya que es redundante asi que permanece oculto y queda solo para que el programador para futuras funciones
     dios1 = DiosGriego(nombre="Zeus", simbolo = "Cielo", origen = "Griego")
     dios2 = DiosGriego(nombre="Poseidón", simbolo = "Mar", origen = "Griego")
     dios3 = DiosGriego(nombre="Ares", simbolo = "Guerra", origen = "Griego")
@@ -30,7 +30,7 @@ def dioses_griegos(request):
 
 def dioses_romanos(request):
 
-    
+    #el atributo origen no se ve en la web ya que es redundante asi que permanece oculto y queda solo para que el programador para futuras funciones
     dios1 = DiosRomano(nombre="Júpiter", simbolo = "Cielo", origen = "Romano")
     dios2 = DiosRomano(nombre="Neptuno", simbolo = "Mar", origen = "Romano")
     dios3 = DiosRomano(nombre="Marte", simbolo = "Guerra", origen = "Romano")
