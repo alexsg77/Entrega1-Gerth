@@ -1,4 +1,5 @@
 # Integrantes: Alex Gerth, Alejo Sintolo
+# VIDEO EXPLICANDO BLOG: https://youtu.be/u_hFtnJjoXQ
 # Funcionalidades: 
 # sistema de creación de cuenta, deslogear cuenta, editar cuenta, cargar avatar
 # dos listados uno con dioses griegos y otro con dioses romanos
