@@ -39,7 +39,7 @@ class EditarDemonio(LoginRequiredMixin,UpdateView):
     fields = ["nombre", "simbolo", "origen", "reseña", "fecha_creacion", "autor"]    
     
     
-class EliminarDemonio(DeleteView, LoginRequiredMixin):
+class EliminarDemonio(LoginRequiredMixin, DeleteView):
     model=CrearDemonio
     template_name = "demonios/eliminar_demonio.html"
     success_url = "/demonios/listado_demonios"  
